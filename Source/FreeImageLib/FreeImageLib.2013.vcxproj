@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -26,25 +26,25 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -115,9 +115,9 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir ..\..\Dist\x32
-copy $(TargetPath) ..\..\Dist\x32\$(ProjectName)d.lib
-copy ..\FreeImage.h ..\..\Dist\x32
+      <Command>mkdir ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
+copy "$(TargetPath)" ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)\$(ProjectName)d.lib
+copy ..\FreeImage.h ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -152,9 +152,9 @@ copy ..\FreeImage.h ..\..\Dist\x32
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir ..\..\Dist\x64
-copy $(TargetPath) ..\..\Dist\x64\$(ProjectName)d.lib
-copy ..\FreeImage.h ..\..\Dist\x64
+      <Command>mkdir ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
+copy "$(TargetPath)" ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)\$(ProjectName)d.lib
+copy ..\FreeImage.h ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -191,9 +191,9 @@ copy ..\FreeImage.h ..\..\Dist\x64
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir ..\..\Dist\x32
-copy $(TargetPath) ..\..\Dist\x32\$(ProjectName).lib
-copy ..\FreeImage.h ..\..\Dist\x32
+      <Command>mkdir ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
+copy "$(TargetPath)" ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)\$(ProjectName).lib
+copy ..\FreeImage.h ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -233,9 +233,9 @@ copy ..\FreeImage.h ..\..\Dist\x32
       <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
     </Lib>
     <PostBuildEvent>
-      <Command>mkdir ..\..\Dist\x64
-copy $(TargetPath) ..\..\Dist\x64\$(ProjectName).lib
-copy ..\FreeImage.h ..\..\Dist\x64
+      <Command>mkdir ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
+copy "$(TargetPath)" ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)\$(ProjectName).lib
+copy ..\FreeImage.h ..\..\Dist\$(PlatformToolset)\$(PlatformTarget)
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
