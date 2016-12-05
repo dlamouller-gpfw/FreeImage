@@ -54,11 +54,12 @@ int CLASS fcol (int row, int col)
   return FC(row,col);
 }
 
-size_t strnlen(const char *s, size_t n)
-{
-  const char *p = (const char *)memchr(s, 0, n);
-  return(p ? p-s : n);
-}
+//Removed; already part of the standard library and will cause conflicts.
+//size_t strnlen(const char *s, size_t n)
+//{
+//  const char *p = (const char *)memchr(s, 0, n);
+//  return(p ? p-s : n);
+//}
 
 #ifndef __GLIBC__
 char *my_memmem (char *haystack, size_t haystacklen,
