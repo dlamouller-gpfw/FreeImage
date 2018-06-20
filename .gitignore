@@ -1,0 +1,9 @@
+*.o
+*.tlog
+*.lib
+*.dll
+*.idb
+*.lastbuildstate
+libfreeimage*.so
+libfreeimage.a
+Dist/FreeImage.h

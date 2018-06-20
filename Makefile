@@ -4,6 +4,9 @@
 OS = $(shell uname)
 MAKEFILE = gnu
 
+ifeq ($(OS), Linux)
+    MAKEFILE = linux
+endif
 ifeq ($(OS), Darwin)
     MAKEFILE = osx
 endif

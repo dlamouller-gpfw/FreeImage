@@ -1,34 +1,33 @@
 #!/bin/sh
-rm -rf Release
-rm -rf Debug
-rm -rf Source/FreeImageLib/Debug
-rm -rf Source/FreeImageLib/Release
-rm -rf Source/Source/Release
-rm -rf Source/Source/Debug
-rm -rf Source/LibJPEG/Debug
-rm -rf Source/LibJPEG/Release
-rm -rf Source/LibPNG/Debug
-rm -rf Source/LibPNG/Release
-rm -rf Source/LibMNG/Debug
-rm -rf Source/LibMNG/Release
-rm -rf Source/LibTIFF/Debug
-rm -rf Source/LibTIFF/Release
-rm -rf Source/LibTIFF4/Debug
-rm -rf Source/LibTIFF4/Release
-rm -rf Source/Zlib/Debug
-rm -rf Source/Zlib/Release
-rm -rf Source/OpenEXR/Debug
-rm -rf Source/OpenEXR/Release
-rm -rf Source/LibOpenJPEG/Debug
-rm -rf Source/LibOpenJPEG/Release
-rm -rf Source/LibRawLite/Debug
-rm -rf Source/LibRawLite/Release
-rm -rf Source/LibWebP/Debug
-rm -rf Source/LibWebP/Release
-rm -rf Source/LibJXR/Debug
-rm -rf Source/LibJXR/Release
-rm -rf TestAPI/Debug
-rm -rf TestAPI/Release
+
+SOURCE=Source
+NOW=$(date '+%F %Hh-%Mm-%Ss')
+
+echo $NOW
+for i in Release Debug
+do
+	if [ -d $i ]; then
+		rm -rf $i
+		echo $NOW "Deleted: " $i
+	else
+		echo $NOW "Not exist: " $i
+	fi
+	if [ -d TestAPI/$i ]; then
+		rm -rf TestAPI/$i
+		echo $NOW "Deleted: " TestAPI/$i
+	else
+		echo $NOW "Not exist: " TestAPI/$i
+	fi
+	for j in FreeImage freeimagelib Source LibJPEG LibPNG LibMNG LibTIFF LibTIFF4 ZLib OpenEXR LibOpenJPEG LibRawLite LibWebP LibJXR
+	do
+		if [ -d $SOURCE/$j/$i ]; then
+			rm -rf $SOURCE/$j/$i
+			echo $NOW "Deleted: " $SOURCE/$j/$i
+		else
+			echo $NOW "Not exist: " $SOURCE/$j/$i
+		fi
+	done
+done
 find . -name '*.pch' -exec rm -f {} ";"
 find . -name '*.ncb' -exec rm -f {} ";"
 find . -name '*.opt' -exec rm -f {} ";"
